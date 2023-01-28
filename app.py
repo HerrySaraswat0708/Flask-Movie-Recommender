@@ -2,7 +2,6 @@ from flask import Flask,render_template,redirect,Response,request
 import requests
 import joblib
 from flask_fontawesome import FontAwesome
-import random 
 import numpy
 with open('movies.joblib','rb') as f:
     movies=joblib.load(f) 
@@ -35,7 +34,7 @@ rating_before=[]
 index_before=[]
 
 for i in range(0,9):
-    index=numpy.ceil(random.random()*10)
+    index=numpy.ceil(numpy.random.randint(10)*10)
     movie_index=movies.iloc[index].movie_id
     movies_list = sorted(enumerate(similarity[38]),reverse=True,key=lambda x:x[1])[1:10]
 for i in movies_list:
