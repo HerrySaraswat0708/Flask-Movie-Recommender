@@ -3,4 +3,3 @@ joblib
 requests
 FontAwesome
 numpy
-random
