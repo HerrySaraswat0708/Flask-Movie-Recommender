@@ -3,7 +3,7 @@ import requests
 import joblib
 from flask_fontawesome import FontAwesome
 import random 
-import math
+import numpy
 with open('movies.joblib','rb') as f:
     movies=joblib.load(f) 
 with open('similarity.joblib','rb') as f:
@@ -35,7 +35,7 @@ rating_before=[]
 index_before=[]
 
 for i in range(0,9):
-    index=math.ceil(random.random()*10)
+    index=numpy.ceil(random.random()*10)
     movie_index=movies.iloc[index].movie_id
     movies_list = sorted(enumerate(similarity[38]),reverse=True,key=lambda x:x[1])[1:10]
 for i in movies_list:
