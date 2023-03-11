@@ -2,6 +2,7 @@ from flask import Flask,render_template,redirect,Response,request
 import requests
 import joblib
 from flask_fontawesome import FontAwesome
+import random2 
 import numpy
 with open('movies.joblib','rb') as f:
     movies=joblib.load(f) 
@@ -32,10 +33,9 @@ poster_before=[]
 tag_before=[]
 rating_before=[]
 index_before=[]
-
-for i in range(0,9):
-    index=numpy.ceil(numpy.random.randint(10)*10)
-    movie_index=movies.iloc[index].movie_id
+indexes=random2.sample(range(1,50),9)
+for i in indexes:
+    movie_index=movies.iloc[i].movie_id
     movies_list = sorted(enumerate(similarity[38]),reverse=True,key=lambda x:x[1])[1:10]
 for i in movies_list:
     poster_before.append(fetch_poster(movies.iloc[i[0]].movie_id))
@@ -62,13 +62,12 @@ def home():
             tag.append(fetch_tag(movies.iloc[i[0]].movie_id))
             rating.append(fetch_rating(movies.iloc[i[0]].movie_id))
             indexes.append(i[0])
-            print(rating)
         
     return render_template('home.html',movies=movies['title'],indexes=indexes,path=poster,tag=tag,rating=rating,index_before=index_before,tag_before=tag_before,rating_before=rating_before,poster_before=poster_before)
 
-@app.route('/about')
-def about():
-    return render_template('about.html')
+# @app.route('/about')
+# def about():
+#     return render_template('about.html')
 
 
 
