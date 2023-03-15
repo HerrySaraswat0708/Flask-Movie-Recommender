@@ -6,9 +6,9 @@ import random2
 import numpy
 import pickle
 with open('movies.joblib','rb') as f:
-    movies=joblib.load(f) 
+    movies=pickle.load(f) 
 with open('similarity.joblib','rb') as f:
-    similarity=joblib.load(f) 
+    similarity=pickle.load(f) 
 
 
 def fetch_poster(movie_id):
