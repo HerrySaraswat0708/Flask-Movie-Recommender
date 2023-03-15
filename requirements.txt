@@ -4,3 +4,4 @@ requests
 FontAwesome
 numpy
 random2
+flask_fontawesome
