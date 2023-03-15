@@ -5,8 +5,8 @@ from flask_fontawesome import FontAwesome
 import random2 
 
 
-with open('movies.joblib','rb') as f:
-    movies=joblib.load(f) 
+# with open('movies.joblib','rb') as f:
+#     movies=joblib.load(f) 
 with open('similarity.joblib','rb') as f:
     similarity=joblib.load(f) 
 
