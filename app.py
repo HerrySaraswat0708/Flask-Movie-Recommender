@@ -3,12 +3,12 @@ import requests
 import joblib
 from flask_fontawesome import FontAwesome
 import random2 
-import numpy
-import pickle
+
+
 with open('movies.joblib','rb') as f:
-    movies=pickle.load(f) 
+    movies=joblib.load(f) 
 with open('similarity.joblib','rb') as f:
-    similarity=pickle.load(f) 
+    similarity=joblib.load(f) 
 
 
 def fetch_poster(movie_id):
